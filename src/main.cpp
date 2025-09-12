@@ -1,4 +1,5 @@
-#include <ESP32Servo.h>
+#include <Servo.h>
+#include <Arduino.h>
 
 Servo servo1;
 Servo servo2;
