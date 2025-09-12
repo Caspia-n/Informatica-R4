@@ -3,7 +3,7 @@ import mediapipe as mp
 import serial
 import time
 
-port = "/dev/ttyUSB0"
+port = input("Enter the COM port (e.g., COM3 or /dev/ttyUSB0): ")
 baud = 115200
 esp = serial.Serial(port, baud, timeout=1)
 time.sleep(2)
@@ -11,7 +11,7 @@ time.sleep(2)
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 
-cap = cv2.VideoCapture("http://100.115.92.22:8080/video")
+cap = cv2.VideoCapture(0)
 hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7)
 
 def distance(p1, p2):
