@@ -10,11 +10,11 @@ Servo servo5;
 void setup()
 {
   Serial.begin(115200);
-  servo1.attach(21); // Index
-  servo2.attach(19); // Middle
-  servo3.attach(18); // Ring
-  servo4.attach(5);  // Pinky
-  servo5.attach(4);  // Thumb
+  servo1.attach(11); // Index
+  servo2.attach(10); // Middle
+  servo3.attach(9); // Ring
+  servo4.attach(6);  // Pinky
+  servo5.attach(5);  // Thumb
 }
 
 void loop()
