@@ -49,6 +49,7 @@ while True:
             def map_angle(d):
                 angle_index = int(min(max((d - 0.02) * 1000, 0), 180))
                 return angle_index
+            
             a1 = map_angle(d_index)   # Servo 1
             a2 = map_angle(d_middle)  # Servo 2
             a3 = map_angle(d_ring)    # Servo 3
@@ -59,11 +60,24 @@ while True:
             msg = f"{a1},{a2},{a3},{a4},{a5}\n"
             try:
                 esp.write(msg.encode())
+                esp.flush()
+            except serial.SerialException as e:
+                print("SerialError occured while sending data: " + e)
             except Exception as e:
-                print("exception occured in esp.write: " + e)
-            finally:
-                print(msg)
+                print("Error occured while sending data: " + e)
+            
+            # read them stoopid prints bc otherwise shit brokeeeyyy
+            # + now u can actually see the fucking shit that the arduino says without having to run the serial monitor
+            try:
+                if esp.in_waiting:
+                    output = esp.read(esp.in_waiting)
+                    print(output)
 
+            except serial.SerialException as e:
+                print("SerialError occured while sending data: " + e)
+            except Exception as e:
+                print("Error occured while sending data: " + e)
+                
             cv2.putText(frame, msg.strip(), (10, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
 
