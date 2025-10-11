@@ -57,7 +57,12 @@ while True:
 
             # Send to ESP32
             msg = f"{a1},{a2},{a3},{a4},{a5}\n"
-            esp.write(msg.encode())
+            try:
+                esp.write(msg.encode())
+            except Exception as e:
+                print("exception occured in esp.write: " + e)
+            finally:
+                print(msg)
 
             cv2.putText(frame, msg.strip(), (10, 40),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)

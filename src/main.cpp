@@ -21,6 +21,8 @@ void loop()
 {
   if (Serial.available())
   {
+    Serial.println("Looping");
+    
     String data = Serial.readStringUntil('\n');
     int a1, a2, a3, a4, a5;
     if (sscanf(data.c_str(), "%d,%d,%d,%d,%d", &a1, &a2, &a3, &a4, &a5) == 5)
@@ -45,6 +47,6 @@ void loop()
     {
       Serial.println("Invalid data");
     }
-    delay(5);
+    delay(1);
   }
 }
