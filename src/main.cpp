@@ -32,7 +32,7 @@ void loop() {
             sprintf(anglesBuffer, "%-6d | %-6d | %-6d | %-6d | %d", a1, a2, a3, a4, a5);
             
             Serial.println(headersBuffer);
-            Serial.println("------|--------|------|-------|------");
+            Serial.println("-------|--------|--------|--------|------");
             Serial.println(anglesBuffer);
         } else {
             Serial.print("Invalid data: ");
