@@ -71,7 +71,7 @@ while True:
             try:
                 if esp.in_waiting:
                     output = esp.read(esp.in_waiting)
-                    print(output)
+                    print(output.decode())
 
             except serial.SerialException as e:
                 print("SerialError occured while sending data: " + e)
