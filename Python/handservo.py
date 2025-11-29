@@ -69,7 +69,7 @@ def read_output() -> None:
             print("ERROR: recvfrom() timed out.")
 
 def map_angle(d):
-    angle_index = int(min(max((d - 0.02) * 1000, 0), 180)) // 2
+    angle_index = int(min(max((d - 0.02) * 1000, 0), 180))
     return angle_index
 
 
